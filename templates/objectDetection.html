@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Multiple Objects Detection {% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="row" style="margin-top: 100px">
+            <div class="col-md-6">
+				  <img src="{{ pimg.pic.url }}" class="img-rounded img-responsive" alt="Please Upload an Image" >
+			</div>
+            <div class="col-md-3">
+			    <div class="row">
+                    <br><br>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="file-upload" class="custom-file-upload btn btn-default">
+                            Choose
+                        </label>
+                        <input id="file-upload" type="file" name="myFile" accept="image/*" style="display: none" onclick="setValue()">
+                        <input type="submit" value="Upload Pic" class="btn btn-default" id="up" disabled="true">
+                    </form>
+                </div>
+                <div class="row">
+                    <br><br>
+                    <h3>Result</h3>
+                    {% for li in list_of_name %}
+                        <h5>{{ li }}</h5>
+                    {% endfor %}
+                </div>
+
+
+
+			</div>
+            <div class="col-md-3">
+
+			</div>
+
+        </div>
+
+    </div>
+    <script>
+
+        function setValue()
+        {
+            document.getElementById('up').disabled = false;
+
+
+        }
+    </script>
+{% endblock %}

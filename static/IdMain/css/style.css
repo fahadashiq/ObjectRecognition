@@ -1,0 +1,718 @@
+
+
+/* ------------------------------------------ */
+/*             TABLE OF CONTENTS
+/* ------------------------------------------ */
+/*   01 - Loading Transition  */
+/*   02 - Click To Top  */
+/*   03 - Global Settings */
+/*   04 - Theme Header */
+/*   05 - Theme Main Banner */
+/*   06 - About section */
+/*   07 - Service section  */
+/*   08 - Project section  */
+/*   09 - Page Middle Banner  */
+/*   10 - Team Section  */
+/*   11 - Skill Section  */
+/*   12 - Our Client  */
+/*   13 - Pricing Section  */
+/*   14 - Blog Section  */
+/*   15 - Partner Section  */
+/*   16 - Contact Section  */
+/*   17 - Footer */
+/*   18 - Inner Page Banner  */
+/*   19 - Blog Aside bar */
+/*   20 - Blog Details Post */
+
+
+
+/**
+* Importing necessary  Styles.
+**/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
+/*----bootstrap css ----- */
+@import url('../vendor/bootstrap/bootstrap.css');
+/*----font awesome -------*/
+@import url('../fonts/font-awesome/css/font-awesome.min.css');
+/*-------- animated css ------*/
+@import url('../vendor/WOW-master/css/libs/animate.css');
+/*-------- hover css ------*/
+@import url('../vendor/hover.css');
+
+
+/*** 
+
+====================================================================
+  Loading Transition
+====================================================================
+
+ ***/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #fff;
+  overflow: hidden;
+}
+#preloader_1{
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#preloader_1 span{
+  display:block;
+  bottom:0px;
+  width: 6px;
+  height: 5px;
+  background:#e04f5d; 
+  position:absolute;
+  animation: preloader_1 1.5s  infinite ease-in-out;
+}
+ 
+#preloader_1 span:nth-child(2){
+left:11px;
+animation-delay: .2s;
+ 
+}
+#preloader_1 span:nth-child(3){
+left:22px;
+animation-delay: .4s;
+}
+#preloader_1 span:nth-child(4){
+left:33px;
+animation-delay: .6s;
+}
+#preloader_1 span:nth-child(5){
+left:44px;
+animation-delay: .8s;
+}
+@keyframes preloader_1 {
+    0% {height:5px;transform:translateY(0px);background:#e62d3f;}
+    25% {height:30px;transform:translateY(15px);background:#e62d3f;}
+    50% {height:5px;transform:translateY(0px);background:#ee2438;}
+    100% {height:5px;transform:translateY(0px);background:#ee2438;}
+}
+
+
+/*** 
+
+====================================================================
+  Click To Top
+====================================================================
+
+ ***/
+.scroll-top {
+  width:45px;
+  height:45px;
+  position: fixed;
+  bottom: 52px;
+  right: 80px;
+  z-index: 9999;
+  text-align: center;
+  color:#fff;
+  font-size: 20px;
+  display: none;
+}
+.scroll-top:after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 1;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+}
+/*** 
+
+====================================================================
+  Global Settings
+====================================================================
+
+ ***/
+
+ @font-face {
+  font-family: 'font-awesome';
+  src: url('../fonts/font-awesome/fonts/fontawesome-webfont.ttf');
+  src: url('../fonts/font-awesome/fonts/fontawesome-webfont.eot'), /* IE9 Compat Modes */
+       url('../fonts/font-awesome/fonts/fontawesome-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/font-awesome/fonts/fontawesome-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/font-awesome/fonts/fontawesome-webfont.svg') format('svg'); /* Legacy iOS */
+ }
+ body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  color:#6f6f6f;
+  font-size: 14px;
+  position: relative;
+ }
+.main-page-wrapper {
+  overflow-x:hidden;
+}
+ h1,h2,h3,h4,h5,h6,p,ul { margin:0;padding: 0;}
+ h1,h2,h3,h4,h5,h6 {color:#292929; text-transform: uppercase;font-weight: 700;}
+ h1 {font-size: 48px;}
+ h2 {font-size: 36px;}
+ h3 {font-size: 28px;}
+ h4 {font-size: 24px;}
+ h5 {font-size: 22px;}
+ h6 {font-size: 18px;}
+ p {line-height: 26px;}
+ ul {list-style-type: none;}
+ a {text-decoration: none; display: inline-block;}
+ a:hover,a:focus,a:visited {text-decoration: none; outline: none;}
+ img {max-width: 100%; display: block;}
+
+ button {border:none;outline: none;box-shadow: none;display: block; padding: 0;}
+ input,textarea {outline: none; box-shadow: none;-webkit-transition: all 0.3s ease-in-out;-o-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;}
+
+
+.clear-fix { clear:both;}
+.clear-fix:after {
+  display: table;
+  content: '';
+  clear: both;
+ }
+.tran3s,.theme-main-menu .navbar-nav>li a,#project-section .project-gallery .single-img .opacity,
+#team-section .team-member-wrapper .single-team-member .member-name h6,
+#team-section .team-member-wrapper .single-team-member .member-name p,
+#team-section .team-member-wrapper .single-team-member .member-name ul,
+#our-client .owl-theme .owl-dots .owl-dot span {
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+      -ms-transition: all .3s ease-in-out;
+       -o-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+ }
+.tran4s,#service-section .single-service-content p,#project-section .project-gallery .single-img .opacity ul,
+#project-section .project-gallery .single-img .opacity h6 a {
+  -webkit-transition: all .4s ease-in-out;
+     -moz-transition: all .4s ease-in-out;
+      -ms-transition: all .4s ease-in-out;
+       -o-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+ }
+.float-left {float:left;}
+.float-right {float:right;}
+.round-border {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+}
+.theme-title {
+  text-align: center;
+  margin: 95px 0 0 0;
+}
+.theme-title h2 {
+  position: relative;
+}
+.theme-title h2:before {
+  content: '';
+  width: 25px;
+  height: 3px;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  margin-left: -12px;
+}
+.theme-title p {
+  font-size: 16px;
+  width: 75%;
+  margin: 60px auto 0 auto;
+}
+.p-color,.theme-main-menu .navbar-nav>li.active>a,
+.theme-main-menu .navbar-nav>li>a:hover,#about-us .single-about-content:hover h5 a,
+#service-section .single-service-content:hover .icon-heading .icon,
+#service-section .single-service-content:hover .icon-heading h6 a,
+#pricing-section .single-price-table a:hover,#blog-section .single-news-item .img a,
+#blog-section .single-news-item:hover .post p a,#blog-section .single-news-item .post h6:hover a,
+#contact-section .contact-address-content .left-side ul li:hover .icon,
+#contact-section .send-message form button:hover,.inner-page-banner .opacity ul li:last-child,
+.blog-details-page aside .sidebar-news-list ul li a i,.monthly-header-title,
+.blog-details-page aside .sidebar-news-list ul li a:hover,.blog-details-page aside .sidebar-archives ul li a i,
+.blog-details-page aside .sidebar-archives ul li a:hover,.blog-details-page aside .sidebar-archives ul li a.active,
+.blog-details-page aside .sidebar-news-list ul li a.active,.recent-single-post .post a:hover,
+.sidebar-tags ul li a:hover,.blog-details-post-wrapper .list-img-wrapper ul li a i,
+.blog-details-post-wrapper .list-img-wrapper ul li a:hover,.blog-details-post-wrapper .post-comment form button:hover,
+.blog-details-post-wrapper .post-share-area .share li a:hover,.theme-main-menu.navbar .nav>li ul li a:hover,
+.blog-details-post-wrapper .post-share-area .share li a.active {
+  color:#d73e4d;
+}
+.p-color-bg,.theme-title h2:before,#about-us .single-about-content:hover .icon,
+#skill-section .codeconSkillbar .skillBar,#our-client .owl-theme .owl-dots .owl-dot.active span,
+#our-client .owl-theme .owl-dots .owl-dot:hover span,
+.blog-details-post-wrapper .comment-area .single-comment .comment button:hover {
+  background: #d73e4d;
+}
+.banner .project-button,#about-us .icon,#about-us .single-about-content a.more,
+#service-section .single-service-content:hover,#project-section .project-menu ul li.active,
+#project-section .project-menu ul li:hover,.page-middle-banner .opacity a,
+#team-section .team-member-wrapper .single-team-member .img .opacity h4,#pricing-section .single-price-table a,
+#our-client .owl-theme .owl-dots .owl-dot.active span, #our-client .owl-theme .owl-dots .owl-dot:hover span,
+#contact-section .contact-address-content .left-side ul li .icon,#contact-section .send-message form button,
+.sidebar-tags ul li a:hover,.blog-details-post-wrapper .post-comment form button,
+.blog-details-post-wrapper .post-comment textarea:focus,.blog-details-post-wrapper .post-comment input:focus {
+  border-color:#d73e4d;
+  border-style: solid;
+}
+/*** 
+
+====================================================================
+  Theme Header
+====================================================================
+
+ ***/
+.theme-main-header {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  z-index: 999;
+  padding-top: 20px;
+}
+.theme-main-menu .navbar-nav>li>a {
+  text-transform: uppercase;
+  color:#fff;
+  font-weight: 700;
+  background: transparent;
+  padding: 9px 15px;
+} 
+.theme-main-menu .navbar-nav>li:last-child>a {
+  padding-right: 0;
+}
+.theme-main-menu.navbar {
+  border:none;
+  margin: 0;
+}
+
+.theme-main-menu.navbar .nav>li ul.sub-menu {
+  position: absolute;
+  background: #1e1e1e;
+  width:150px;
+  top:120%;
+  top:calc(100% + 60px);
+  left:0;
+  opacity: 0;
+  visibility: hidden;
+  text-align: left;
+  -webkit-transition: all .5s ease-in-out;
+     -moz-transition: all .5s ease-in-out;
+      -ms-transition: all .5s ease-in-out;
+       -o-transition: all .5s ease-in-out;
+          transition: all .5s ease-in-out;
+  -webkit-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.15);
+  box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.15);
+}
+.theme-main-menu.navbar .nav>li ul li a {
+  line-height: 40px;
+  color:#fff;
+  font-weight: 700;
+  padding: 0 0 0 15px;
+  display: block;
+}
+.theme-main-menu.navbar .nav>li ul li:last-child a {
+  border:none;
+}
+.theme-main-menu.navbar .nav>li:hover ul.sub-menu {
+  top:100%;
+  opacity: 1;
+  visibility: visible;
+}
+.theme-main-menu .navbar-toggle {
+  margin: 0;
+  border-radius: 0;
+  color:#fff;
+  padding-right: 15px;
+}
+.theme-main-menu .navbar-toggle .fa {
+  font-size: 18px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.theme-main-menu .navbar-nav {
+  margin: 0;
+}
+.theme-main-header li.dropdown-holder .fa {
+  position: absolute;
+  top:0;
+  right: 0;
+  text-align: center;
+  width: 45px;
+  color:#fff;
+  font-size: 18px;
+  display: none;
+  cursor: pointer;
+  line-height: 44px;
+}
+/*** 
+
+====================================================================
+  Sticky Menu
+====================================================================
+
+ ***/
+@keyframes menu_sticky {
+  0%   {margin-top:-120px;opacity: 0;}
+  50%  {margin-top: -64px;opacity: 0;}
+  100% {margin-top: 0;opacity: 1;}
+}
+.theme-main-header.fixed {
+  position: fixed;
+  width:100%;
+  top:0;
+  left:0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.5);
+  margin:0;
+  animation-name: menu_sticky;
+  animation-duration: 0.70s;
+  animation-timing-function: ease-in-out;
+}
+.theme-main-header.fixed .logo {
+  margin-top: -8px;
+}
+/*** 
+
+====================================================================
+  Theme Main Banner
+====================================================================
+
+ ***/
+.rev_slider_wrapper {
+  background: #000;
+}
+.banner h1,.banner h6,.banner .project-button {
+  color:#fff;
+}
+.banner h6 {
+  font-weight: 500;
+}
+.banner .project-button {
+  width: 170px;
+  line-height: 50px;
+  text-align: center;
+  border-width: 1px;
+  text-transform: uppercase;
+}
+/*** 
+
+====================================================================
+  About section
+====================================================================
+
+ ***/
+#about-us .single-about-content {
+  text-align: center;
+  margin-top: 55px;
+  margin-bottom: 100px;
+}
+#about-us .icon {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  line-height: 130px;
+  border-width: 2px;
+  font-size: 36px;
+  color:#292929;
+}
+#about-us h5 a {
+  color:#292929;
+  margin: 35px 0 20px 0;
+}
+#about-us .single-about-content a.more {
+  width: 130px;
+  line-height: 45px;
+  color:#292929;
+  border-width: 1px;
+  margin-top:22px;
+}
+#about-us .single-about-content a.more:hover,
+#about-us .single-about-content:hover .icon {
+  color:#fff;
+}
+/*** 
+
+====================================================================
+  Contact Section
+====================================================================
+
+ ***/
+#contact-section .contact-address-content h2 {
+  margin: 95px 0 35px 0;
+}
+#contact-section .contact-address-content .left-side ul {
+  margin-top: 70px;
+}
+#contact-section .contact-address-content .left-side ul li{
+  position: relative;
+  padding-left: 85px;
+  margin-bottom: 50px;
+}
+#contact-section .contact-address-content .left-side ul li h6 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+#contact-section .contact-address-content .left-side ul li .icon {
+  width: 60px;
+  height: 60px;
+  border-width: 1px;
+  position: absolute;
+  left:0;
+  top:-9px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 30px;
+}
+#contact-section .contact-address-content .left-side ul li:hover .icon {
+  background: #fff;
+}
+#contact-section .contact-address-content #map {
+  width: 100%;
+  height: 500px;
+}
+#contact-section .send-message {
+  padding: 0 15px;
+}
+#contact-section .send-message h2 {
+  margin: 50px 0 40px 0;
+}
+#contact-section .send-message .single-input {
+  margin-bottom: 20px;
+  height: 50px;
+}
+#contact-section .send-message .single-input input,
+#contact-section .send-message form textarea {
+  width: 100%;
+  height: 100%;
+  border:1px solid #dfdfdf;
+  padding: 0 15px;
+}
+#contact-section .send-message form textarea {
+  height: 260px;
+  max-width: 100%;
+  max-height: 260px;
+  margin-bottom: 25px;
+  padding: 20px 15px;
+}
+#contact-section .send-message .single-input input:focus,
+#contact-section .send-message form textarea:focus {
+  border-color: #424040;
+}
+#contact-section .send-message form button {
+  width: 140px;
+  line-height: 40px;
+  text-align: center;
+  color:#fff;
+  text-transform: uppercase;
+  border-width: 1px;
+}
+#contact-section .send-message form button:hover {
+  background: #fff;
+}
+/*** 
+
+====================================================================
+  Conatct Form Activation
+====================================================================
+
+ ***/
+.alert-wrapper {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+}
+#success,
+#error {
+  position: relative;
+  width:500px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left:calc(50% - 250px);
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+}
+#success .wrapper,
+#error .wrapper {
+  display: table;
+  width:100%;
+  height: 100%;
+}
+#success .wrapper p,
+#error .wrapper p{
+  display: table-cell;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+#success {
+  color: #57D1C9;
+}
+#error {
+  color: #C9182B;
+}
+#error button,
+#success button {
+  color:#fff;
+  width:40px;
+  height:40px;
+  line-height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 20px;
+}
+.form-validation label.error {
+  display: none !important;
+}
+.form-validation input.error,
+.form-validation textarea.error {
+  border:1px solid #f03838 !important;
+}
+/*** 
+
+====================================================================
+  Footer
+====================================================================
+
+ ***/
+footer {
+  margin: 100px 0 0 0;
+  background: #1e1e1e;
+  padding: 60px 0 25px 0;
+  text-align: center;
+}
+footer .logo {
+  margin-bottom: 20px;
+}
+footer ul li {
+  display: inline-block;
+  margin-top: 13px;
+}
+footer ul li a {
+  width: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  margin: 0 7px;
+  border:1px solid transparent;
+}
+footer ul li:nth-child(1) a {
+  color: #677fb5;
+  border-color:#677fb5;
+}
+footer ul li:nth-child(2) a {
+  color: #70c2e9;
+  border-color:#70c2e9;
+}
+footer ul li:nth-child(3) a {
+  color: #d8545d;
+  border-color:#d8545d;
+}
+footer ul li:nth-child(4) a {
+  color: #007ab9;
+  border-color:#007ab9;
+}
+footer ul li:nth-child(5) a {
+  color: #5ecbf3;
+  border-color:#5ecbf3;
+}
+footer ul li:nth-child(6) a {
+  color: #ff3ba4;
+  border-color:#ff3ba4;
+}
+footer ul li:nth-child(7) a {
+  color: #e299c2;
+  border-color:#e299c2;
+}
+footer ul li:nth-child(8) a {
+  color: #faaa5e;
+  border-color:#faaa5e;
+}
+footer ul li:nth-child(1) a:hover {
+  background: #677fb5;
+}
+footer ul li:nth-child(2) a:hover {
+  background: #70c2e9;
+}
+footer ul li:nth-child(3) a:hover {
+  background: #d8545d;
+}
+footer ul li:nth-child(4) a:hover {
+  background: #007ab9;
+}
+footer ul li:nth-child(5) a:hover {
+  background: #5ecbf3;
+}
+footer ul li:nth-child(6) a:hover {
+  background: #ff3ba4;
+}
+footer ul li:nth-child(7) a:hover {
+  background: #e299c2;
+}
+footer ul li:nth-child(8) a:hover {
+  background: #faaa5e;
+}
+footer ul li a:hover {
+  color:#fff !important;
+}
+footer p {
+  color:#fff;
+  font-size: 15px;
+  margin-top: 50px;
+}
+/*** 
+
+====================================================================
+  Inner Page Banner 
+====================================================================
+
+ ***/
+.inner-page-banner {
+  background: url(../images/inner-page/1.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.inner-page-banner .opacity {
+  height: 100%;
+  background:rgba(0,0,0,0.5);
+  padding: 146px 0 70px 0;
+}
+.inner-page-banner .opacity h2 {
+  color:#fff;
+  margin-bottom: 18px;
+}
+.inner-page-banner .opacity ul li {
+  display: inline-block;
+  margin: 0 3px;
+  font-size: 18px;
+  color: #fff;
+}
+.inner-page-banner .opacity ul li a {
+  color:#fff;
+}
+
+
+/* Upload Pic page css*/
+.uploadpic {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
