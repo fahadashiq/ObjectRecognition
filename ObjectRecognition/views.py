@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import UploadedImage, PredictedImage
+from .models import PredictedImage
 import pythoncom
 import win32com.client as wincl
 import base64
@@ -47,7 +47,7 @@ def objectDetection(request):
 
 
         # image_np, list_of_classes = object_detection_custom.perdictMultiObj(ImgObj.pic.path)
-        image_np, list_of_classes, list_of_percentage = object_detection.detect_img(filename)
+        image_np, list_of_percentage, list_of_classes = object_detection.detect_img(filename)
         # convert those ids into names
         '''
         for li in list_of_classes:
@@ -88,13 +88,23 @@ def objectDetection(request):
         pimg.save()
         print("passed")'''
         img = Image.fromarray(image_np, 'RGB')
-        unique_filename = str(uuid.uuid4())
-        unique = settings.BASE_DIR + '/media/predicted/' + unique_filename + '.jpg'
-        img.save(unique)
+        unique_id = str(uuid.uuid4())
+        unique_filename_and_address = '/predicted/' + unique_id + '.jpg'
+        img.save(settings.MEDIA_ROOT + unique_filename_and_address)
 
         pimg = PredictedImage()
-        pimg.pic = unique
-        #pimg.perdiction = names
+        pimg.pic = unique_filename_and_address
 
-        return render(request, 'objectDetection.html', {'list_of_name': list_of_classes, 'pimg': pimg, })
+        list_of_classes_modified = []
+        list_of_percentage_modified = []
+
+        for class_name in list_of_classes:
+            list_of_classes_modified.append(bytes.decode(class_name))
+
+        for percentage in list_of_percentage:
+            list_of_percentage_modified.append(round(percentage * 100, 2))
+
+        detection = zip(list_of_classes_modified, list_of_percentage_modified);
+
+        return render(request, 'objectDetection.html', {'pimg': pimg, 'detection': detection})
     return render(request, 'objectDetection.html')

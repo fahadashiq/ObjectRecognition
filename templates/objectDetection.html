@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row" style="margin-top: 100px">
-            <div class="col-md-6">
+            <div class="col-md-9">
 				  <img src="{{ pimg.pic.url }}" class="img-rounded img-responsive" alt="Please Upload an Image" >
 			</div>
             <div class="col-md-3">
@@ -24,18 +24,12 @@
                 <div class="row">
                     <br><br>
                     <h3>Result</h3>
-                    {% for li in list_of_name %}
-                        <h5>{{ li }}</h5>
+                    <br/>
+                    {% for name, percentage in detection %}
+                        <h5>{{ name }} : {{ percentage }}</h5>
                     {% endfor %}
                 </div>
-
-
-
 			</div>
-            <div class="col-md-3">
-
-			</div>
-
         </div>
 
     </div>
